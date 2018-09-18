@@ -1,0 +1,6 @@
+Character Sheet - DataObject (stored in DB)
+ -> system agnostic (all characters have potential attributes in all systems)
+ -> switching system means switching view
+
+Attribute Modification - DataObject (stored in DB)
+ -> Applied as modifier to character sheet

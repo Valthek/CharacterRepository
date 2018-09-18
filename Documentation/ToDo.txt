@@ -1,0 +1,8 @@
+MVP:
+
+Single user (no auth)
+n* characters
+Single System
+CRUD ability
+
+Can be Database Independent

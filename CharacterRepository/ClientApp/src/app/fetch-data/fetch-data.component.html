@@ -1,24 +1,22 @@
-<h1>Weather forecast</h1>
+<h1>Character Sheets</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!characterSheets"><em>Loading...</em></p>
 
-<table class='table' *ngIf="forecasts">
+<table class='table' *ngIf="characterSheets">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
+      <th>Name</th>
+      <th>System</th>
+      <th>Player</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.dateFormatted }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
+    <tr *ngFor="let characterSheet of characterSheets">
+      <td>{{ characterSheet.name }}</td>
+      <td>{{ characterSheet.system }}</td>
+      <td>{{ characterSheet.player }}</td>
     </tr>
   </tbody>
 </table>

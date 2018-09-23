@@ -13,8 +13,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let characterSheet of characterSheets">
-      <td>{{ characterSheet.name }}</td>
+    <tr *ngFor="let characterSheet of characterSheets" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+      <td><a [routerLink]='["/fetch-detail"]'> {{ characterSheet.name }}</a></td>
       <td>{{ characterSheet.system }}</td>
       <td>{{ characterSheet.player }}</td>
     </tr>

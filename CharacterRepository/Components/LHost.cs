@@ -7,6 +7,6 @@ namespace CharacterRepository.Components
 {
     public class LHost: AttributeModification
     {
-        List<string> SpecialAbilities;
+        List<string> _specialAbilities;
     }
 }

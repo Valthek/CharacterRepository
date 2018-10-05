@@ -20,14 +20,14 @@ namespace CharacterRepository.Controllers.CharacterData
             "5E", "PF2", "EP 1ed", "EP 2ed", "BitD", "P&P"
         };
 
-        private List<CharacterSheet> storedCharacterSheets = new List<CharacterSheet>();
+        private List<CharacterSheet> _storedCharacterSheets = new List<CharacterSheet>();
 
         [HttpGet("[action]")]
         public IEnumerable<CharacterSheet> CharacterSheets()
         {
             var rng = new Random();
 
-            var OurCharAttributes = new InfinityCharacterAttributes
+            var ourCharAttributes = new InfinityCharacterAttributes
             {
                 Agility = 7,
                 Awareness = 7,
@@ -38,25 +38,31 @@ namespace CharacterRepository.Controllers.CharacterData
                 Willpower = 7
             };
 
-            if (storedCharacterSheets.Count <= 0)
+            if (_storedCharacterSheets.Count <= 0)
             {
-                storedCharacterSheets = Enumerable.Range(1, 5).Select(index => new CharacterSheet
+                _storedCharacterSheets = Enumerable.Range(1, 5).Select(index => new CharacterSheet
                 {
                     Id = index,
                     Name = Names[rng.Next(Names.Length)],
                     Player = "Valthek",
                     System = Systems[rng.Next(Systems.Length)],
-                    baseCharacterAttributes = OurCharAttributes
+                    BaseCharacterAttributes = ourCharAttributes
                 }).ToList();
             }
 
-            return storedCharacterSheets;
+            return _storedCharacterSheets;
+        }
+
+        [HttpPut("[action]")]
+        public void SetCharacterSheet()
+        {
+
         }
 
         [HttpGet("{id}")]
-        public CharacterSheet DetailCharacterSheet(int Id)
+        public CharacterSheet DetailCharacterSheet(int id)
         {
-            return storedCharacterSheets[Id];
+            return _storedCharacterSheets[id];
         }
     }
 }

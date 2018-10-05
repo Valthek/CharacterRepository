@@ -10,10 +10,10 @@ namespace CharacterRepository.Components
         public string Player;
         public string System;
 
-        public CharacterAttributes baseCharacterAttributes;
-        public int[] lHostAttributes;
+        public ICharacterAttributes BaseCharacterAttributes;
+        public int[] LHostAttributes;
 
-        public LHost sleeve;
+        public LHost Sleeve;
 
         //TODO Add more character attributes
     }

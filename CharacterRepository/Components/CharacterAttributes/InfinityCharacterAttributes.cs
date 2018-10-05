@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CharacterRepository.Components.CharacterStatistics
 {
-    public class InfinityCharacterAttributes : CharacterAttributes
+    public class InfinityCharacterAttributes : ICharacterAttributes
     {
         public int Agility;
         public int Awareness;

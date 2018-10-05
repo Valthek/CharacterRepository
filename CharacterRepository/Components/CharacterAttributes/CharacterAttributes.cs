@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CharacterRepository.Components.CharacterStatistics
 { 
-    public interface CharacterAttributes
+    public interface ICharacterAttributes
     {
 
         List<string> GetAttributeNames();

@@ -12,8 +12,8 @@ namespace CharacterRepository.Components.CharacterStatistics
         public int Awareness;
         public int Brawn;
         public int Coordination;
-        public int Personality;
         public int Intelligence;
+        public int Personality;
         public int Willpower;
 
         public List<string> GetAttributeNames()

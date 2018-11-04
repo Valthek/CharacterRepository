@@ -2,16 +2,22 @@
 
 <p>This component demonstrates adding data from the server.</p>
 
-<form ng-submit="postData()" ng-controller='add-data'>
+<form #characterForm="ngForm">
   Name: <br>
-  <input type="text" name="Name" value="Mickey">
+  <input type="text" id="characterName" name="characterName"
+         required
+         [(ngModel)]="characterSheet.name">
   <br>
   System: <br>
-  <input type="text" name="lastname" value="Mouse">
+  <input type="text" name="characterSystem"
+         required
+         [(ngModel)]="characterSheet.system">
   <br>
   Player: <br>
-  <input type="text" name="Name" value="Mickey">
+  <input type="text" name="characterPlayer"
+         required
+         [(ngModel)]="characterSheet.player">
   <br><br>
-  <input type="submit" value="Submit" onclick="postData()">
+  <input type="submit" value="Submit" (click)="postData()">
 
 </form>

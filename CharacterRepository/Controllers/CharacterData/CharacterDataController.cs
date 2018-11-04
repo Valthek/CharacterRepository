@@ -53,14 +53,35 @@ namespace CharacterRepository.Controllers.CharacterData
             return _storedCharacterSheets;
         }
 
-        [HttpPut("[action]")]
-        public void SetCharacterSheet()
+        [HttpPost]
+        // Get data from request body
+        public IActionResult SetCharacterSheet([FromBody]CharacterSheet sheet)
         {
+            try
+            {
+                if(sheet == null)
+                {
+                    // If we ever implement a proper logging service, log the error here
+                    return BadRequest("Sheet object is null");
+                }
 
+                // could test for bad modelstate here
+
+                // Add model to list of sheets
+                _storedCharacterSheets.Add(sheet);
+
+                // return 201 (Created) httpheader
+                return CreatedAtRoute("Sheet ID", new { id = sheet.Id }, sheet);
+            }
+            catch(Exception ex)
+            {
+                // If we ever implement a proper logging service, log the error here
+                return StatusCode(500, "Something went wrong while creating a new sheet.");
+            }
         }
 
-        [HttpGet("{id}")]
-        public CharacterSheet DetailCharacterSheet(int id)
+        [HttpGet("{id}", Name = "CharacterSheetById")]
+        public CharacterSheet CharacterSheetById(int id)
         {
             return _storedCharacterSheets[id];
         }
